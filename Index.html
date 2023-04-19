@@ -18,7 +18,8 @@
         >Registrar Datos</header>
 
         <form class="needs-validation mt-5"
-        action="https://formsubmit.co/donaldoctavio0210@gmail.com">
+        action="https://formsubmit.co/donaldoctavio0210@gmail.com"
+        method="POST">
     
         <div class="col-lg">
             <div class="input-field">
@@ -90,7 +91,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="departamento" class="form-label">Departamento✅</label>
-                    <input name="Celular" type="text" class="form-control"id="departamento" placeholder="Departamento" required />
+                    <input name="Departamento" type="text" class="form-control"id="departamento" placeholder="Departamento" required />
                         <div class="valid-feedback">
                             Llenado con exito! ✅
                         </div>
@@ -191,8 +192,15 @@
                             Falta llenar el campo! ❌
                         </div>
                 </div>
+                 <button 
+                type="submit"
+                class="btn btn-primary btn-lg"
+                onclick="realizarCita()">
+                Enviar
+                </button>
                 
              </div>
+            
              <script>
                 (() => {
                     'use strict'
@@ -215,6 +223,33 @@
                     })
                 })()
             </script>
- 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+    
+    const doc = new  jsPDF();
+
+    doc.setFillCollor(28, 41, 51);
+
+    doc. rect(0, 0, 220, 60 ,'f');
+
+    doc.sentFontSize(14);
+
+    doc.sentFontype("bold");
+
+    doc.setTextColor(255, 255, 255);
+
+    doc.text('HOJA DE SOLICITUD DE BECA');
+
+    let partes = fecha.split('-');
+
+    var fechadoc = partes[2] +'-'+ partes[1] +'-'+ partes[0]
+    
+    const docpdf = '${beca} ${carnet} ${nombre} ${apellido} ${municipio} ${comarca} ${departamento} ${telefono} ${celular} ${operadora} ${claseCell} ${nombreBeneficiario} ${apellidoBeneficiario} ${cedula} ${ocupacion}'
+
+    doc.save(docpdf);
+    </script>
 </body>
 </html>
