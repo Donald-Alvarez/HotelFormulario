@@ -123,8 +123,8 @@
                     <label for="operadora" class="form-label">Operadora Celular📶</label>
                     <select class="form-select" name aria-label="Default select example">
                     <option selected>Selecciones✅</option>
-                    <option value="1">Claro🔴</option>
-                    <option value="2">Tigo🔵</option>
+                    <option value="Claro">Claro🔴</option>
+                    <option value="Tigo">Tigo🔵</option>
                      </select required>
                         <div class="valid-feedback">
                             Llenado con exito! ✅
@@ -137,8 +137,8 @@
                     <label for="claseCell" class="form-label">Clase de celurar📱📵</label>
                     <select class="form-select"  name="claseCell" id="claseCell"aria-label="Default select example">
                     <option selected>Selecciones✅</option>
-                    <option value="1">Simple</option>
-                    <option value="2">Inteligente</option>
+                    <option value="Simple">Simple</option>
+                    <option value="Inteligene">Inteligente</option>
                      </select required>
                         <div class="valid-feedback">
                             Llenado con exito! ✅
@@ -181,8 +181,8 @@
                     <label for="ocupacion" class="form-label">Ocupación</label>
                     <select class="form-select" name="Ocupacion" id="ocupacion" aria-label="Default select example">
                     <option selected>Selecciones✅</option>
-                    <option value="1">Estudia 🧑‍🎓</option>
-                    <option value="2">Trabaja 👨‍🏭</option>
+                    <option value="Estudia">Estudia 🧑‍🎓</option>
+                    <option value="Trabaja">Trabaja 👨‍🏭</option>
                      </select required>
                         <div class="valid-feedback">
                             Llenado con exito! ✅
@@ -193,6 +193,28 @@
                 </div>
                 
              </div>
+             <script>
+                (() => {
+                    'use strict'
+                    
+                    const forms = document.querySelectorAll('.needs-validation');
+        
+                    Array.from(forms).forEach( form => {
+                        form.addEventListener('submit', event => {
+                            
+                            if ( !form.checkValidity() ) {
+        
+                                event.preventDefault();
+                                event.stopPropagation();
+        
+                            }
+        
+                            form.classList.add( 'was-validated' );
+        
+                        }, false)
+                    })
+                })()
+            </script>
  
 </body>
 </html>
