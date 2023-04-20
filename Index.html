@@ -233,6 +233,22 @@
     <script type="text/javascript">
         function genPDF(){
             var doc=new jsPDF();
+
+            let Beca=document.getElementById('beca').value;
+            let Carnet=document.getElementById('carnet').value;
+            let Nombre=document.getElementById('nombre').value;
+            let Apellido=document.getElementById('apellido').value;
+            let Municipio=document.getElementById('municipio').value;
+            let Comarca=document.getElementById('comarca').value;
+            let Departamento=document.getElementById('departamento').value;
+            let Telefono=document.getElementById('telefono').value;
+            let Celular=document.getElementById('celular').value;
+            let Operadora=document.getElementById('operadora').value;
+            let ClaseCell=document.getElementById('claseCell').value;
+            let NombreBeneficiario=document.getElementById('nombreBeneficiario').value;
+            let ApellidoBeneficiario=document.getElementById('apellidoBeneficiario').value;
+            let Cedula=document.getElementById('cedula').value;
+            let Ocupacion=document.getElementById('ocupacion').value;
  
             
             doc.text(85,5,"Registro de la Beca")
