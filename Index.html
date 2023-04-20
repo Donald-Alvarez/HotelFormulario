@@ -18,9 +18,10 @@
         >Registrar Datos</header>
 
         <form class="needs-validation mt-5"
+        onsubmit="return genPDF()"
         action="https://formsubmit.co/donaldoctavio0210@gmail.com"
-        onsubmit="return jsPDF()"
-        method="POST">
+        method="POST"
+        >
     
         <div class="col-lg">
             <div class="input-field">
@@ -123,7 +124,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="operadora" class="form-label">Operadora Celular📶</label>
-                    <select class="form-select" name aria-label="Default select example">
+                    <select class="form-select" name="Operadora" id="operadora" aria-label="Default select example">
                     <option selected>Selecciones✅</option>
                     <option value="Claro">Claro🔴</option>
                     <option value="Tigo">Tigo🔵</option>
@@ -137,7 +138,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="claseCell" class="form-label">Clase de celurar📱📵</label>
-                    <select class="form-select"  name="claseCell" id="claseCell"aria-label="Default select example">
+                    <select class="form-select"  name="ClaseCell" id="claseCell"aria-label="Default select example">
                     <option selected>Selecciones✅</option>
                     <option value="Simple">Simple</option>
                     <option value="Inteligene">Inteligente</option>
@@ -161,7 +162,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="apellidoBeneficiario" class="form-label">Apellido del Beneficiario⭐</label>
-                    <input name="ApellidoBeneficiario" type="text" class="form-control"id="apellidBeneficiario" placeholder="Apellido del beneficiario" required />
+                    <input name="ApellidoBeneficiario" type="text" class="form-control"id="apellidoBeneficiario" placeholder="Apellido del beneficiario" required />
                         <div class="valid-feedback">
                             Llenado con exito! ✅
                         </div>
@@ -226,31 +227,47 @@
             </script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
 
-    <script>
-    
-    const doc = new  jsPDF();
-
-    doc.setFillCollor(28, 41, 51);
-
-    doc. rect(0, 0, 220, 60 ,'f');
-
-    doc.sentFontSize(14);
-
-    doc.sentFontype("bold");
-
-    doc.setTextColor(255, 255, 255);
-
-    doc.text('HOJA DE SOLICITUD DE BECA');
-
-    let partes = fecha.split('-');
-
-    var fechadoc = partes[2] +'-'+ partes[1] +'-'+ partes[0]
-    
-    const docpdf = '${beca} ${carnet} ${nombre} ${apellido} ${municipio} ${comarca} ${departamento} ${telefono} ${celular} ${operadora} ${claseCell} ${nombreBeneficiario} ${apellidoBeneficiario} ${cedula} ${ocupacion}'
-
-    doc.save(docpdf);
+    <script type="text/javascript" src="jspdf.main.js"></script>
+    <script type="text/javascript">
+        function genPDF(){
+            var doc=new jsPDF();
+ 
+            
+            doc.text(85,5,"Registro de la Beca")
+            doc.text(20,35,"Emisión de la Beca:")
+            doc.text(20,45, Beca);
+            doc.text(20,55,"Carné:")
+            doc.text(20,65,Carnet);
+            doc.text(20,75,"Nombre:")
+            doc.text(20,85,Nombre);
+            doc.text(20,95,"Apellido:")
+            doc.text(20,105,Apellido);
+            doc.text(20,115,"Municipio:")
+            doc.text(20,125,Municipio);
+            doc.text(20,135,"Comarca:")
+            doc.text(20,145,Comarca);
+            doc.text(20,155,"Departamento:")
+            doc.text(20,165,Departamento);
+            doc.text(20,175,"Telefono:")
+            doc.text(20,185,Telefono);
+            doc.text(90,35,"Celular:")
+            doc.text(90,45,Celular);
+            doc.text(90,55,"Operadora:")
+            doc.text(90,65,Operadora);
+            doc.text(90,75,"Clase del celular:")
+            doc.text(90,85,ClaseCell);
+            doc.text(90,95,"Nombre del Beneficiario:")
+            doc.text(90,105,NombreBeneficiario);
+            doc.text(90,115,"Apellido del Beneficiario:")
+            doc.text(90,125,ApellidoBeneficiario);
+            doc.text(90,135,"Cédula:")
+            doc.text(90,145,Cedula);
+            doc.text(90,155,"Ocupación:")
+            doc.text(90,165,Ocupacion);
+            doc.save(Beca.pdf)
+        }
     </script>
 </body>
 </html>
